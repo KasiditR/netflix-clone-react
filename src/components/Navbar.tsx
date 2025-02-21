@@ -50,7 +50,7 @@ const Navbar = () => {
           <Search className="size-6 cursor-pointer"></Search>
         </Link>
         <img
-          src={user.image}
+          src={user?.image}
           alt="Avatar"
           className="h-8 rounded cursor-pointer"
         />
