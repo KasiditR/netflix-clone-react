@@ -28,6 +28,7 @@ export const useAuthStore = create<AuthState>(set => ({
         credentials
       );
       localStorage.setItem('refreshToken', response.data.refreshToken);
+      localStorage.setItem('accessToken', response.data.accessToken);
       set({ user: response.data, isSigningUp: false });
       toast.success('Account created successfully');
     } catch (error: any) {
@@ -43,6 +44,7 @@ export const useAuthStore = create<AuthState>(set => ({
         credentials
       );
       localStorage.setItem('refreshToken', response.data.refreshToken);
+      localStorage.setItem('accessToken', response.data.accessToken);
       set({ user: response.data, isLoggingIn: false });
       toast.success('Login successful');
     } catch (error: any) {
@@ -55,6 +57,8 @@ export const useAuthStore = create<AuthState>(set => ({
     try {
       await axiosInstance.post('/api/v1/auth/logout');
       set({ user: null, isLoggingOut: false });
+      localStorage.removeItem('refreshToken')
+      localStorage.removeItem('accessToken')
       toast.success('Logged out successfully');
     } catch (error: any) {
       set({ isLoggingOut: false });
