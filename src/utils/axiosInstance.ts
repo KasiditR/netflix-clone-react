@@ -6,7 +6,7 @@ import axios, {
 } from 'axios';
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://netflix-clone-go-gin-api.onrender.com',
   timeout: 10000,
   withCredentials: true,
   headers: {
